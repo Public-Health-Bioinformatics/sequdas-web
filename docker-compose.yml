@@ -4,10 +4,10 @@ services:
     image: php:7.2.1-apache
     ports:
       - 80:80
-      volumes:
-        - ./src:/var/www/html
-      links:
-        - 'mariadb'
+    volumes:
+      - ./src:/var/www/html
+    links:
+      - 'mariadb'
   
   mariadb:
     image: mariadb:10.1
@@ -19,3 +19,6 @@ services:
         MYSQL_USER: ''
         MYSQL_PASSWORD: ''
         MYSQL_DATABASE: ''
+
+volumes:
+    mariadb:
