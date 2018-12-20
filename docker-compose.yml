@@ -1,23 +1,23 @@
 version: '3'
 services:
-  php-apache:
-    image: php:7.2.1-apache
-    ports:
-      - 80:80
-    volumes:
-      - ./src:/var/www/html
-    links:
-      - 'mariadb'
-  
-  mariadb:
+  db:
     image: mariadb:10.1
+    ports:
+      - 3306:3306
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d
     environment:
-        MYSQL_ALLOW_EMPTY_PASSWORD: "no"
-        MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-        MYSQL_USER: "sequdas"
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-        MYSQL_DATABASE: "sequdas"
-
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_USER: "sequdas"
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: "sequdas"
+  web:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html/sequdas
+    depends_on:
+      - 'db'
