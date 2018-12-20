@@ -12,13 +12,12 @@ services:
   mariadb:
     image: mariadb:10.1
     volumes:
-        - mariadb:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
     environment:
         MYSQL_ALLOW_EMPTY_PASSWORD: "no"
-        MYSQL_ROOT_PASSWORD: ""
-        MYSQL_USER: ''
-        MYSQL_PASSWORD: ''
-        MYSQL_DATABASE: ''
+        MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+        MYSQL_USER: "sequdas"
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_DATABASE: "sequdas"
 
-volumes:
-    mariadb:
