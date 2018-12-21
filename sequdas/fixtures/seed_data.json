@@ -1,0 +1,50 @@
+[
+    {
+	"model": "sequdas.samplesheet",
+	"pk": 1,
+	"fields": {
+	    "path": "",
+	    "iem_file_version": "",
+	    "investigator_name": "",
+	    "project_name": "",
+	    "date": "",
+	    "workflow": ,
+	    "assay": "",
+	    "description": "",
+	    "chemistry": "",
+	    "application": "",
+	    "read1_length": "",
+	    "read2_length": "",
+	    "reverse_complement": ,
+	    "adapter": "",
+	    "adapter_read2": "",
+	}
+    },
+    {
+	"model": "sequdas.sequencerun",
+	"pk": 1,
+	"fields": {
+	    "sample_sheet": 1,
+	    "run_id": "",
+	    "folder": "",
+	    "cluster_density": ,
+	    "clusters_passed_filter_percent": ,
+	    "reads_total": ,
+	    "reads_passed_filter": ,
+	    "bases_greater_than_q30_percent": 
+	}
+    },
+    {
+	"model": "sequdas.sample",
+	"pk": 1,
+	"fields": {
+	    "sample_id": "",
+	    "sample_name": "",
+	    "sequence_run": 1,
+	    "irida_project_id": 
+	    "index_1_i7_seq": "",
+	    "index_2_i7_seq": "",
+	    "reads_identified_passed_filter_percent": 
+	}
+    }
+]
