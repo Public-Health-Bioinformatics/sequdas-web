@@ -29,85 +29,63 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 //PHP Goes Here!
 ?>
 <div id="page-wrapper">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12">
-					<h1></h1>
-					<!-- Content Goes Here. Class width can be adjusted -->
-				<!--djcontent_start-->
-				
-
-  
-<br><br/>
-
- 
-
-<table id="table"
-data-toggle="table"
-data-toolbar="#toolbar"
-           data-toolbar="#toolbar"
-           data-show-export="true"
-           data-search="true"
-           data-show-refresh="true"
-           data-show-toggle="true"
-           data-show-columns="true"           
-           data-detail-view="true"
-           data-detail-formatter="detailFormatter"
-           data-minimum-count-columns="2"
-           data-show-pagination-switch="true"
-           data-pagination="true"
-           data-id-field="id"
-           data-page-list="[5,10, 25, 50, 100, ALL]"
-           data-show-footer="false"
-           data-url="access_info.php"
-           data-sort-name="bccdc_id"
-           data-sort-order="desc"
->
-    <thead>
-        <tr>
-            <th data-field="bccdc_id" data-sortable="true">Run ID</th>
-            <th data-field="source" data-sortable="true">Source</th>
-            <th data-field="folder" data-sortable="true">Folder</th>
-             <th data-formatter="reportFormatter_date" data-field="run_date" data-sortable="true">Date</th>
-            <th data-field="start_time" data-sortable="true">Archiving start time</th>
-             <th data-field="end_time" data-sortable="true">Analysis finish time</th>
-             <th data-formatter="reportFormatter_status" data-sortable="true">Status</th>
-             <th data-formatter="reportFormatter">Report</th>
-           
-        </tr>
-    </thead>
-</table>
-
-
-
-
-</div>
-				
-				
-				<!--djcontent_end-->
-
-					<!-- End of main content section -->
-			</div> <!-- /.col -->
-		</div> <!-- /.row -->
-	</div> <!-- /.container -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1></h1>
+        <!-- Content Goes Here. Class width can be adjusted -->
+        <!--djcontent_start-->
+        <br><br/>
+        <table id="table"
+               data-toggle="table"
+               data-toolbar="#toolbar"
+               data-show-export="true"
+               data-search="true"
+               data-show-refresh="true"
+               data-show-toggle="true"
+               data-show-columns="true"
+               data-detail-view="true"
+               data-detail-formatter="detailFormatter"
+               data-minimum-count-columns="2"
+               data-show-pagination-switch="true"
+               data-pagination="true"
+               data-id-field="id"
+               data-page-list="[5,10, 25, 50, 100, ALL]"
+               data-show-footer="false"
+               data-url="access_info.php"
+               data-sort-name="bccdc_id"
+               data-sort-order="desc"
+               >
+          <thead>
+            <tr>
+              <th data-field="bccdc_id" data-sortable="true">Run ID</th>
+              <th data-field="source" data-sortable="true">Source</th>
+              <th data-field="folder" data-sortable="true">Folder</th>
+              <th data-formatter="reportFormatter_date" data-field="run_date" data-sortable="true">Date</th>
+              <th data-field="start_time" data-sortable="true">Archiving start time</th>
+              <th data-field="end_time" data-sortable="true">Analysis finish time</th>
+              <th data-formatter="reportFormatter_status" data-sortable="true">Status</th>
+              <th data-formatter="reportFormatter">Report</th>
+            </tr>
+          </thead>
+        </table>
+      <!--djcontent_end-->
+      <!-- End of main content section -->
+      </div> <!-- /.col -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
 </div> <!-- /.wrapper -->
 
 
-	<!-- footers -->
+<!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
-
-<!-- Place any per-page javascript here -->
-   
-
-    <script src="./test/assets/bootstrap-table/src/bootstrap-table.js"></script>
-    <script src="./test/assets/bootstrap-table/src/extensions/export/bootstrap-table-export.js"></script>  
- 
-    <script src="/test/assets/jquery.min.js"></script> 
-    <script src="/test/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
- 
-    <script src="/test/ga.js"></script>
-
+  <!-- Place any per-page javascript here -->
+  <script src="./test/assets/bootstrap-table/src/bootstrap-table.js"></script>
+  <script src="./test/assets/bootstrap-table/src/extensions/export/bootstrap-table-export.js"></script> 
+  <script src="/test/assets/jquery.min.js"></script>
+  <script src="/test/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+  <script src="/test/ga.js"></script>
 
 <script>
     var $table = $('#table1'),
@@ -116,7 +94,7 @@ data-toolbar="#toolbar"
 
     function initTable() {
         $table.bootstrapTable({
-            height: getHeight(),            
+            height: getHeight(),
             columns: [
                 [
                     {
@@ -145,7 +123,7 @@ data-toolbar="#toolbar"
                         title: 'Item 1Name',
                         sortable: true,
                         editable: true,
-                        formatter: operateFormatter,         
+                        formatter: operateFormatter,
                         footerFormatter: totalNameFormatter,
                         align: 'center'
                     }, {
@@ -230,7 +208,7 @@ data-toolbar="#toolbar"
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                             var myArr = JSON.parse(this.responseText); 
+                             var myArr = JSON.parse(this.responseText);
                              var note="";
                            for (m = 0; m < myArr.length; m++) {
                              note=note+myArr[m].clade_name+": "+myArr[m].percent_reads_in_clade+"%"+"<br>";
@@ -242,7 +220,7 @@ data-toolbar="#toolbar"
                          };
                          xmlhttp.open("GET", jsfile_taxon, true);
                          xmlhttp.send();
-                     };       
+                     };
    function detailFormatter(index, row) {
         var html = [];
         var qc='/miseq/img/'+row.folder+'/'+row.folder+'_qcreport.html';
@@ -262,7 +240,7 @@ data-toolbar="#toolbar"
                    html.push('<tr>' +'<td>'+'&nbsp&nbsp&nbsp&nbsp&nbsp'+'</td>');
                    html.push('<td>'+'S'+i+'</td>');
                    html.push('<td>'+sample_name+'</td>');
-                   html.push('<td>'+'<a target="_blank" href="http://sabin.bcgsc.ca:8080/irida-latest/projects/'+projectid+'">'+projectid+'</a>'+'</td>');                   	
+                   html.push('<td>'+'<a target="_blank" href="http://sabin.bcgsc.ca:8080/irida-latest/projects/'+projectid+'">'+projectid+'</a>'+'</td>');
                   } 
                  else {
                  	  sample_name=sample_array[i-1].replace(regex2,"");
@@ -298,11 +276,6 @@ data-toolbar="#toolbar"
         return html.join('');
       }
  
- 
- 
- 
-
-
     function reportFormatter(value, row, index) {
         var icon = row.status >1 ? 'glyphicon-star' : 'glyphicon-star-empty'
         if(row.status==4) {
@@ -311,7 +284,7 @@ data-toolbar="#toolbar"
                 '<a target="_blank" title="MiSeq Reporter" class="like" href="show.php?name=',
                 row.folder,
                 '&id=',
-                row.bccdc_id,                
+                row.bccdc_id,
                 '">',
                  '<i class="fa fa-bar-chart" style="font-size:24px;color:#E91E63""></i>',
                  '</a>'
@@ -323,15 +296,15 @@ data-toolbar="#toolbar"
                 '<a target="_blank" title="MiSeq Reporter" class="like" href="show.php?name=',
                 row.folder,
                 '&id=',
-                row.bccdc_id,                
+                row.bccdc_id,
                 '">',
                  '<i class="fa fa-bar-chart" style="font-size:24px;color:#E91E63""></i>',
-                 '</a>&nbsp&nbsp&nbsp',                 
+                 '</a>&nbsp&nbsp&nbsp',
                    '<a target="_blank" title="MultQC Report" class="like" href="/miseq/img/',
                 row.folder,
                 '/',
                 row.folder,
-                '_qcreport.html',                
+                '_qcreport.html',
                 '">',
                  '<i class="glyphicon glyphicon-picture" style="font-size:24px;color:#3498DB""></i>',
                  '</a>  '
@@ -348,7 +321,7 @@ data-toolbar="#toolbar"
         function IsNum(s){
            if(s!=null){
            var r,re;
-           re = /\d{6}/i; 
+           re = /\d{6}/i;
            r = s.match(re);
            return (r==s)?true:false;
          }

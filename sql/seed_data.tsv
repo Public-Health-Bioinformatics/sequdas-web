@@ -1,0 +1,2 @@
+id	bccdc_id	source,fullpath	folder	status	start_time	end_time	sample	analysis_status	del_status
+1	BCCDCN000001	BAM	/data/miseq/181212_M04448_0021_000000000-C472A	181212_M04448_0021_000000000-C472A	0	2018-12-14#07:00:08	2018-12-14#10:28:42	BC18A029B,BC18A055B,BC18A075A	{"s1": "1", "s2": "1", "s3": "1"}	0

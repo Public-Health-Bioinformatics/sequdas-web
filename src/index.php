@@ -6,15 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v3.12.1, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
   <meta name="description" content="">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-  <link rel="stylesheet" href="assets/mobirise/css/style.css">
-  <link rel="stylesheet" href="assets/dropdown-menu/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="node_modules/mobirise-assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+  <link rel="stylesheet" href="node_modules/mobirise-assets/theme/css/style.css">
+  <link rel="stylesheet" href="node_modules/mobirise-assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="node_modules/mobirise-assets/mobirise/css/mbr-additional.css">
   
   
   
@@ -40,7 +39,7 @@
 
 </section>
 
-<section class="engine"><a rel="external" href="https://mobirise.com">Web Page Generator</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header4-6" style="background-image: url(assets/images/mbr-2-2000x1333.jpg);">
+<section class="engine"><a rel="external" href="https://mobirise.com">Web Page Generator</a></section><section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header4-6" style="background-image: url(images/mbr-2-2000x1333.jpg);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
         
         <div class="mbr-box__container mbr-section__container container">
@@ -64,7 +63,7 @@
         <div class="row">
             <div class="mbr-box mbr-box--fixed mbr-box--adapted">
                 <div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6 image-size" style="width: 50%;">
-                    <figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><img src="assets/images/20170609-1400x787.jpg" class="mbr-figure__img"></figure>
+                    <figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><img src="images/20170609-1400x787.jpg" class="mbr-figure__img"></figure>
                 </div>
                 <div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 content-size mbr-section__right">
                     <div class="mbr-section__container mbr-section__container--middle">
@@ -98,12 +97,12 @@
 </footer>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
-  <script src="assets/jarallax/jarallax.js"></script>
-  <script src="assets/mobirise/js/script.js"></script>
-  <script src="assets/dropdown-menu/script.js"></script>
+  <script src="node_modules/mobirise-assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="node_modules/mobirise-assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="node_modules/mobirise-assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="node_modules/mobirise-assets/jarallax/jarallax.min.js"></script>
+  <script src="node_modules/mobirise-assets/theme/js/script.js"></script>
+  <script src="node_modules/mobirise-assets/dropdown/js/script.min.js"></script>
   
   
 </body>
