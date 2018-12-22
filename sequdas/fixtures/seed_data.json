@@ -3,21 +3,21 @@
 	"model": "sequdas.samplesheet",
 	"pk": 1,
 	"fields": {
-	    "path": "",
-	    "iem_file_version": "",
-	    "investigator_name": "",
-	    "project_name": "",
-	    "date": "",
-	    "workflow": ,
-	    "assay": "",
+	    "path": "/data/miseq/190112_M04448_0021_000000000-C472A/SampleSheet.csv",
+	    "iem_file_version": "4",
+	    "investigator_name": "Dr. Sanger",
+	    "project_name": "A Zillion Genomes Project",
+	    "date": "2019-01-12",
+	    "workflow": "GenerateFASTQ",
+	    "assay": "TruSeq LT",
 	    "description": "",
-	    "chemistry": "",
-	    "application": "",
-	    "read1_length": "",
-	    "read2_length": "",
-	    "reverse_complement": ,
-	    "adapter": "",
-	    "adapter_read2": "",
+	    "chemistry": "Default",
+	    "application": "FASTQ Only",
+	    "read1_length": "251",
+	    "read2_length": "251",
+	    "reverse_complement": 0,
+	    "adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+	    "adapter_read2": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
 	}
     },
     {
@@ -25,26 +25,120 @@
 	"pk": 1,
 	"fields": {
 	    "sample_sheet": 1,
-	    "run_id": "",
-	    "folder": "",
-	    "cluster_density": ,
-	    "clusters_passed_filter_percent": ,
-	    "reads_total": ,
-	    "reads_passed_filter": ,
-	    "bases_greater_than_q30_percent": 
+	    "run_id": "RUN001",
+	    "folder": "/data/miseq/190112_M04448_0021_000000000-C472A",
+	    "cluster_density": 842.1,
+	    "clusters_passed_filter_percent": 88.2,
+	    "reads_total": 19579398,
+	    "reads_passed_filter": 16975660,
+	    "bases_greater_than_q30_percent": 97.3 
 	}
     },
     {
 	"model": "sequdas.sample",
 	"pk": 1,
 	"fields": {
-	    "sample_id": "",
-	    "sample_name": "",
+	    "sample_id": "BC19A000A",
+	    "sample_name": "Sample-00",
 	    "sequence_run": 1,
-	    "irida_project_id": 
-	    "index_1_i7_seq": "",
-	    "index_2_i7_seq": "",
-	    "reads_identified_passed_filter_percent": 
+	    "irida_project_id": 18,
+	    "index_1_i7_seq": "GACACAGT",
+	    "index_2_i5_seq": ""
+	}
+    },
+    {
+	"model": "sequdas.sample",
+	"pk": 2,
+	"fields": {
+	    "sample_id": "BC19A001A",
+	    "sample_name": "Sample-01",
+	    "sequence_run": 1,
+	    "irida_project_id": 18,
+	    "index_1_i7_seq": "GCATAACG",
+	    "index_2_i5_seq": ""
+	}
+    },
+    {
+	"model": "sequdas.sample",
+	"pk": 3,
+	"fields": {
+	    "sample_id": "BC19A002A",
+	    "sample_name": "Sample-02",
+	    "sequence_run": 1,
+	    "irida_project_id": 18,
+	    "index_1_i7_seq": "ACAGAGGT",
+	    "index_2_i5_seq": ""
+	}
+    },
+    {
+	"model": "sequdas.samplesheet",
+	"pk": 2,
+	"fields": {
+	    "path": "/data/miseq/190118_M04448_0022_000000000-AG84B/SampleSheet.csv",
+	    "iem_file_version": "4",
+	    "investigator_name": "Dr. Suzuki",
+	    "project_name": "A Zillion-and-One Genomes Project",
+	    "date": "2019-01-18",
+	    "workflow": "GenerateFASTQ",
+	    "assay": "TruSeq LT",
+	    "description": "",
+	    "chemistry": "Default",
+	    "application": "FASTQ Only",
+	    "read1_length": "251",
+	    "read2_length": "251",
+	    "reverse_complement": 0,
+	    "adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+	    "adapter_read2": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
+	}
+    },
+    {
+	"model": "sequdas.sequencerun",
+	"pk": 2,
+	"fields": {
+	    "sample_sheet": 2,
+	    "run_id": "RUN002",
+	    "folder": "/data/miseq/190118_M04448_0022_000000000-AG84B",
+	    "cluster_density": 721.4,
+	    "clusters_passed_filter_percent": 95.2,
+	    "reads_total": 18893512,
+	    "reads_passed_filter": 16541371,
+	    "bases_greater_than_q30_percent": 88.2
+	}
+    },
+    {
+	"model": "sequdas.sample",
+	"pk": 4,
+	"fields": {
+	    "sample_id": "BC19A003A",
+	    "sample_name": "Sample-00",
+	    "sequence_run": 2,
+	    "irida_project_id": 19,
+	    "index_1_i7_seq": "GACACAGT",
+	    "index_2_i5_seq": ""
+	}
+    },
+    {
+	"model": "sequdas.sample",
+	"pk": 5,
+	"fields": {
+	    "sample_id": "BC19A004A",
+	    "sample_name": "Sample-01",
+	    "sequence_run": 2,
+	    "irida_project_id": 19,
+	    "index_1_i7_seq": "GCATAACG",
+	    "index_2_i5_seq": ""
+	}
+    },
+    {
+	"model": "sequdas.sample",
+	"pk": 6,
+	"fields": {
+	    "sample_id": "BC19A005A",
+	    "sample_name": "Sample-02",
+	    "sequence_run": 2,
+	    "irida_project_id": 19,
+	    "index_1_i7_seq": "ACAGAGGT",
+	    "index_2_i5_seq": ""
 	}
     }
 ]
