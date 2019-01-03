@@ -1,9 +1,8 @@
 from django.db import models
-
-class SampleSheet(models.Model):
-    path = models.CharField(max_length=256, blank=True)
+from polymorphic.models import PolymorphicModel    
     
-class MiseqSampleSheet(SampleSheet):
+class MiseqSampleSheet(models.Model):
+    path = models.CharField(max_length=256, blank=True)
     iem_file_version = models.CharField(max_length=8, blank=True)
     investigator_name = models.CharField(max_length=64, blank=True)
     project_name = models.CharField(max_length=64, blank=True)
@@ -27,16 +26,16 @@ class Sequencer(models.Model):
     model_name = models.CharField(max_length=256, blank=True)
     sequencer_id = models.CharField(max_length=256, blank=True)
 
-class SequenceRun(models.Model):
-    sample_sheet = models.OneToOneField(
-        SampleSheet,
-        on_delete=models.SET_NULL,
-        null=True
-    )
+class SequenceRun(PolymorphicModel):
     run_id = models.CharField(max_length=64)
     sequencer = models.ForeignKey(Sequencer, on_delete=models.SET_NULL, null=True)
 
 class MiseqSequenceRun(SequenceRun):
+    sample_sheet = models.ForeignKey(
+        MiseqSampleSheet,
+        on_delete=models.SET_NULL,
+        null=True
+    )
     folder = models.CharField(max_length=256, blank=True)
     cluster_density = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
     clusters_passed_filter_percent = models.DecimalField(max_digits=4, decimal_places=2, blank=True)
@@ -46,27 +45,36 @@ class MiseqSequenceRun(SequenceRun):
     def __str__(self):
         return self.run_id
 
-class Sample(models.Model):
+class MinionSequenceRun(SequenceRun):
+    reads_total = models.PositiveIntegerField(blank=True)
+    
+class Sample(PolymorphicModel):
     sample_id = models.CharField(max_length=64)
     sample_name = models.CharField(max_length=64, blank=True)
-    sequence_run = models.ForeignKey(SequenceRun, on_delete=models.CASCADE, related_name='samples')
     def __str__(self):
         return (self.sequence_run.run_id + ": " + self.sample_id + "/" + self.sample_name)
 
-class MiseqSampleSheetSample(models.Model):
+class MiseqSample(Sample):
     sample_sheet = models.ForeignKey(
-        'SampleSheet',
+        MiseqSampleSheet,
         on_delete = models.CASCADE
     )
-    sample_id = models.CharField(max_length=64)
-    sample_name = models.CharField(max_length=64, blank=True)
     index_1_i7_seq = models.CharField(max_length=16, blank=True)
     index_2_i5_seq = models.CharField(max_length=16, blank=True)
-    irida_project_id = models.CharField(max_length=64, blank=True)
     def __str__(self):
         return (str(self.sample_sheet) + "/" + self.sample_id)
 
-class ReadSummary(models.Model):
+class MinionSample(Sample):
+    barcode_seq = models.CharField(max_length=16, blank=True)
+    
+class IridaSample(models.Model):
+    irida_project = models.CharField(max_length=64, blank=False)
+    sample  = models.ForeignKey(
+        Sample,
+        on_delete = models.CASCADE
+    )
+    
+class MiseqReadSummary(models.Model):
     sequence_run = models.ForeignKey(SequenceRun, on_delete=models.CASCADE, related_name='read_summaries')
     READ_TYPE_CHOICES = (
         ('READ_1', 'Read 1'),
