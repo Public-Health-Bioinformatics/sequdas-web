@@ -1,0 +1,24 @@
+{
+   "name": "sequdas",
+   "version": "0.1.0",
+   "main": "index.js",
+   "repository": "https://github.com/Public-Health-Bioinformatics/sequdas-web",
+   "license": "MIT",
+   "devDependencies": {
+      "@babel/core": "^7.2.2",
+      "@babel/preset-env": "^7.2.3",
+      "@babel/preset-react": "^7.0.0",
+      "babel-loader": "^8.0.4",
+      "babel-plugin-transform-class-properties": "^6.24.1",
+      "prop-types": "^15.6.2",
+      "react": "^16.7.0",
+      "react-dom": "^16.7.0",
+      "weak-key": "^1.0.1",
+      "webpack": "^4.28.3",
+      "webpack-cli": "^3.1.2"
+   },
+   "scripts": {
+      "dev": "webpack --mode development ./src/index.js --output ./static/frontend/main.js",
+      "build": "webpack --mode production ./src/index.js --output ./static/frontend/main.js"
+   }
+}

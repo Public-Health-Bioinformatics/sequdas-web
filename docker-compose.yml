@@ -1,25 +1,29 @@
 version: '3'
+
 services:
   db:
-    image: mariadb:10.1
-    ports:
-      - 3306:3306
-    volumes:
-      - ./data/mysql:/var/lib/mysql:rw
-      - ./sql:/docker-entrypoint-initdb.d
+    image: postgres:11
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
-      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-      MYSQL_ONETIME_PASSWORD: "yes"
-      MYSQL_USER: "sequdas"
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_DATABASE: "sequdas"
-    user: mysql
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5433:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
   web:
     build: .
-    ports:
-      - 8080:80
+    command: ["/wait-for-it.sh", "db:5432", "--", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+    environment:
+      DJANGO_SECRET_KEY: $DJANGO_SECRET_KEY
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     volumes:
-      - ./src:/var/www/html/sequdas
+      - .:/code
+    ports:
+      - "8000:8000"
     depends_on:
-      - 'db'
+      - db
+
+volumes:
+  postgres_data:
