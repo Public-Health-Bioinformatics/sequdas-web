@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'graphene_django',
+    'rest_framework',
     'sequdas'
 ]
 
@@ -124,6 +124,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-GRAPHENE = {
-    'SCHEMA': 'sequdas.schema.schema'
-}

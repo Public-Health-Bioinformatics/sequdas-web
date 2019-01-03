@@ -2,6 +2,8 @@ from django.db import models
 
 class SampleSheet(models.Model):
     path = models.CharField(max_length=256, blank=True)
+    
+class MiseqSampleSheet(SampleSheet):
     iem_file_version = models.CharField(max_length=8, blank=True)
     investigator_name = models.CharField(max_length=64, blank=True)
     project_name = models.CharField(max_length=64, blank=True)
@@ -20,6 +22,11 @@ class SampleSheet(models.Model):
     def __str__(self):
         return (str(self.date) + ": " + self.investigator_name + "/" + self.project_name)
 
+class Sequencer(models.Model):
+    manufacturer = models.CharField(max_length=256, blank=True)
+    model_name = models.CharField(max_length=256, blank=True)
+    sequencer_id = models.CharField(max_length=256, blank=True)
+
 class SequenceRun(models.Model):
     sample_sheet = models.OneToOneField(
         SampleSheet,
@@ -27,6 +34,9 @@ class SequenceRun(models.Model):
         null=True
     )
     run_id = models.CharField(max_length=64)
+    sequencer = models.ForeignKey(Sequencer, on_delete=models.SET_NULL, null=True)
+
+class MiseqSequenceRun(SequenceRun):
     folder = models.CharField(max_length=256, blank=True)
     cluster_density = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
     clusters_passed_filter_percent = models.DecimalField(max_digits=4, decimal_places=2, blank=True)
@@ -35,7 +45,27 @@ class SequenceRun(models.Model):
     bases_greater_than_q30_percent = models.DecimalField(max_digits=4, decimal_places=2, blank=True)
     def __str__(self):
         return self.run_id
-    
+
+class Sample(models.Model):
+    sample_id = models.CharField(max_length=64)
+    sample_name = models.CharField(max_length=64, blank=True)
+    sequence_run = models.ForeignKey(SequenceRun, on_delete=models.CASCADE, related_name='samples')
+    def __str__(self):
+        return (self.sequence_run.run_id + ": " + self.sample_id + "/" + self.sample_name)
+
+class MiseqSampleSheetSample(models.Model):
+    sample_sheet = models.ForeignKey(
+        'SampleSheet',
+        on_delete = models.CASCADE
+    )
+    sample_id = models.CharField(max_length=64)
+    sample_name = models.CharField(max_length=64, blank=True)
+    index_1_i7_seq = models.CharField(max_length=16, blank=True)
+    index_2_i5_seq = models.CharField(max_length=16, blank=True)
+    irida_project_id = models.CharField(max_length=64, blank=True)
+    def __str__(self):
+        return (str(self.sample_sheet) + "/" + self.sample_id)
+
 class ReadSummary(models.Model):
     sequence_run = models.ForeignKey(SequenceRun, on_delete=models.CASCADE, related_name='read_summaries')
     READ_TYPE_CHOICES = (
@@ -50,27 +80,4 @@ class ReadSummary(models.Model):
     bases_greater_than_q30_percent = models.DecimalField(max_digits=4, decimal_places=2, blank=True)
     def __str__(self):
         return (self.sequence_run.run_id + ": " + self.read_type)
-    
-class Sample(models.Model):
-    sample_id = models.CharField(max_length=64)
-    sample_name = models.CharField(max_length=64, blank=True)
-    sequence_run = models.ForeignKey(SequenceRun, on_delete=models.CASCADE, related_name='samples')
-    irida_project_id = models.CharField(max_length=64, blank=True)
-    index_1_i7_seq = models.CharField(max_length=16, blank=True)
-    index_2_i5_seq = models.CharField(max_length=16, blank=True)
-    def __str__(self):
-        return (self.sequence_run.run_id + ": " + self.sample_id + "/" + self.sample_name)
 
-
-    
-class SampleSheetSample(models.Model):
-    sample_sheet = models.ForeignKey(
-        'SampleSheet',
-        on_delete = models.CASCADE
-    )
-    sample_id = models.CharField(max_length=64)
-    sample_name = models.CharField(max_length=64, blank=True)
-    index_1_i7_seq = models.CharField(max_length=16, blank=True)
-    index_2_i5_seq = models.CharField(max_length=16, blank=True)
-    def __str__(self):
-        return (str(self.sample_sheet) + "/" + self.sample_id)

@@ -3,7 +3,13 @@
 	"model": "sequdas.samplesheet",
 	"pk": 1,
 	"fields": {
-	    "path": "/data/miseq/190112_M04448_0021_000000000-C472A/SampleSheet.csv",
+	    "path": "/data/miseq/190112_M04448_0021_000000000-C472A/SampleSheet.csv"
+	}
+    },
+    {
+	"model": "sequdas.miseqsamplesheet",
+	"pk": 1,
+	"fields": {
 	    "iem_file_version": "4",
 	    "investigator_name": "Dr. Sanger",
 	    "project_name": "A Zillion Genomes Project",
@@ -24,6 +30,15 @@
 	"model": "sequdas.sequencerun",
 	"pk": 1,
 	"fields": {
+	    "run_id": "RUN001",
+	    "sample_sheet": 1,
+	    "sequencer": null
+	}
+    },
+    {
+	"model": "sequdas.miseqsequencerun",
+	"pk": 1,
+	"fields": {
 	    "sample_sheet": 1,
 	    "run_id": "RUN001",
 	    "folder": "/data/miseq/190112_M04448_0021_000000000-C472A",
@@ -35,36 +50,36 @@
 	}
     },
     {
-	"model": "sequdas.sample",
+	"model": "sequdas.miseqsamplesheetsample",
 	"pk": 1,
 	"fields": {
+	    "sample_sheet": 1,
 	    "sample_id": "BC19A000A",
 	    "sample_name": "Sample-00",
-	    "sequence_run": 1,
 	    "irida_project_id": 18,
 	    "index_1_i7_seq": "GACACAGT",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.sample",
+	"model": "sequdas.miseqsamplesheetsample",
 	"pk": 2,
 	"fields": {
+	    "sample_sheet": 1,
 	    "sample_id": "BC19A001A",
 	    "sample_name": "Sample-01",
-	    "sequence_run": 1,
 	    "irida_project_id": 18,
 	    "index_1_i7_seq": "GCATAACG",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.sample",
+	"model": "sequdas.miseqsamplesheetsample",
 	"pk": 3,
 	"fields": {
+	    "sample_sheet": 1,
 	    "sample_id": "BC19A002A",
 	    "sample_name": "Sample-02",
-	    "sequence_run": 1,
 	    "irida_project_id": 18,
 	    "index_1_i7_seq": "ACAGAGGT",
 	    "index_2_i5_seq": ""
@@ -74,7 +89,13 @@
 	"model": "sequdas.samplesheet",
 	"pk": 2,
 	"fields": {
-	    "path": "/data/miseq/190118_M04448_0022_000000000-AG84B/SampleSheet.csv",
+	    "path": "/data/miseq/190118_M04448_0022_000000000-AG84B/SampleSheet.csv"
+	}
+    },
+    {
+	"model": "sequdas.miseqsamplesheet",
+	"pk": 2,
+	"fields": {
 	    "iem_file_version": "4",
 	    "investigator_name": "Dr. Suzuki",
 	    "project_name": "A Zillion-and-One Genomes Project",
@@ -95,6 +116,15 @@
 	"model": "sequdas.sequencerun",
 	"pk": 2,
 	"fields": {
+	    "run_id": "RUN002",
+	    "sample_sheet": 2,
+	    "sequencer": null
+	}
+    },
+    {
+	"model": "sequdas.miseqsequencerun",
+	"pk": 2,
+	"fields": {
 	    "sample_sheet": 2,
 	    "run_id": "RUN002",
 	    "folder": "/data/miseq/190118_M04448_0022_000000000-AG84B",
@@ -106,36 +136,36 @@
 	}
     },
     {
-	"model": "sequdas.sample",
+	"model": "sequdas.miseqsamplesheetsample",
 	"pk": 4,
 	"fields": {
+	    "sample_sheet": 2,
 	    "sample_id": "BC19A003A",
 	    "sample_name": "Sample-00",
-	    "sequence_run": 2,
 	    "irida_project_id": 19,
 	    "index_1_i7_seq": "GACACAGT",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.sample",
+	"model": "sequdas.miseqsamplesheetsample",
 	"pk": 5,
 	"fields": {
+	    "sample_sheet": 2,
 	    "sample_id": "BC19A004A",
 	    "sample_name": "Sample-01",
-	    "sequence_run": 2,
 	    "irida_project_id": 19,
 	    "index_1_i7_seq": "GCATAACG",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.sample",
+	"model": "sequdas.miseqsamplesheetsample",
 	"pk": 6,
 	"fields": {
+	    "sample_sheet": 2,
 	    "sample_id": "BC19A005A",
 	    "sample_name": "Sample-02",
-	    "sequence_run": 2,
 	    "irida_project_id": 19,
 	    "index_1_i7_seq": "ACAGAGGT",
 	    "index_2_i5_seq": ""
