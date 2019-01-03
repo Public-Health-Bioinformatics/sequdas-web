@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_polymorphic.serializers import PolymorphicSerializer
-from sequdas import models
+from . import models
 
 class SequencerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

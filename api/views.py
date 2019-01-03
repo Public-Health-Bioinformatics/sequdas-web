@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from sequdas import models
-from sequdas import serializers
+from . import models
+from . import serializers
 
 class SequencerViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Sequencer.objects.all()

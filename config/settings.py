@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polymorphic',
     'rest_framework',
-    'sequdas'
+    'api',
+    'frontend',
 ]
 
 MIDDLEWARE = [

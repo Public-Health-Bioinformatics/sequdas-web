@@ -1,6 +1,6 @@
 [
     {
-	"model": "sequdas.sequencer",
+	"model": "api.sequencer",
 	"pk": 1,
 	"fields": {
 	    "manufacturer": "Illumina",
@@ -9,7 +9,7 @@
 	}
     },
     {
-	"model": "sequdas.sequencer",
+	"model": "api.sequencer",
 	"pk": 2,
 	"fields": {
 	    "manufacturer": "Illumina",
@@ -18,7 +18,7 @@
 	}
     },
     {
-	"model": "sequdas.sequencer",
+	"model": "api.sequencer",
 	"pk": 3,
 	"fields": {
 	    "manufacturer": "Oxford Nanopore",
@@ -27,7 +27,7 @@
 	}
     },
     {
-	"model": "sequdas.sequencer",
+	"model": "api.sequencer",
 	"pk": 4,
 	"fields": {
 	    "manufacturer": "Oxford Nanopore",
@@ -36,7 +36,7 @@
 	}
     },
     {
-	"model": "sequdas.miseqsamplesheet",
+	"model": "api.miseqsamplesheet",
 	"pk": 1,
 	"fields": {
 	    "path": "/data/miseq/190112_M03782_0021_000000000-C472A/SampleSheet.csv",
@@ -57,7 +57,19 @@
 	}
     },
     {
-	"model": "sequdas.miseqsequencerun",
+	"model": "api.sequencerun",
+	"pk": 1,
+	"fields": {
+	    "polymorphic_ctype": [
+		"api",
+		"miseqsequencerun"
+	    ],
+	    "run_id": "M03782-0021",
+	    "sequencer": 1
+	}
+    },
+    {
+	"model": "api.miseqsequencerun",
 	"pk": 1,
 	"fields": {
 	    "sequencer": 1,
@@ -72,40 +84,73 @@
 	}
     },
     {
-	"model": "sequdas.miseqsample",
+	"model": "api.sample",
 	"pk": 1,
 	"fields": {
-	    "sample_sheet": 1,
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsample"
+	    ],
 	    "sample_id": "BC19A000A",
-	    "sample_name": "Sample-00",
+	    "sample_name": "Sample-00"
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 1,
+	"fields": {
+	    "sample_ptr": 1,
+	    "sample_sheet": 1,
 	    "index_1_i7_seq": "GACACAGT",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.miseqsample",
+	"model": "api.sample",
 	"pk": 2,
 	"fields": {
-	    "sample_sheet": 1,
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsample"
+	    ],
 	    "sample_id": "BC19A001A",
-	    "sample_name": "Sample-01",
+	    "sample_name": "Sample-01"
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 2,
+	"fields": {
+	    "sample_ptr": 2,
+	    "sample_sheet": 1,
 	    "index_1_i7_seq": "GCATAACG",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.miseqsample",
+	"model": "api.sample",
 	"pk": 3,
 	"fields": {
-	    "sample_sheet": 1,
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsample"
+	    ],
 	    "sample_id": "BC19A002A",
-	    "sample_name": "Sample-02",
+	    "sample_name": "Sample-02"
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 3,
+	"fields": {
+	    "sample_ptr": 3,
+	    "sample_sheet": 1,
 	    "index_1_i7_seq": "ACAGAGGT",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.miseqsamplesheet",
+	"model": "api.miseqsamplesheet",
 	"pk": 2,
 	"fields": {
 	    "path": "/data/miseq/190118_M04448_0022_000000000-AG84B/SampleSheet.csv",
@@ -126,7 +171,19 @@
 	}
     },
     {
-	"model": "sequdas.miseqsequencerun",
+	"model": "api.sequencerun",
+	"pk": 2,
+	"fields": {
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsequencerun"
+	    ],
+	    "run_id": "M04448-0022",
+	    "sequencer": 2
+	}
+    },
+    {
+	"model": "api.miseqsequencerun",
 	"pk": 2,
 	"fields": {
 	    "sequencer": 2,
@@ -141,34 +198,67 @@
 	}
     },
     {
-	"model": "sequdas.miseqsample",
+	"model": "api.sample",
 	"pk": 4,
 	"fields": {
-	    "sample_sheet": 2,
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsample"
+	    ],
 	    "sample_id": "BC19A003A",
-	    "sample_name": "Sample-00",
+	    "sample_name": "Sample-00"
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 4,
+	"fields": {
+	    "sample_ptr": 4,
+	    "sample_sheet": 2,
 	    "index_1_i7_seq": "GACACAGT",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.miseqsample",
+	"model": "api.sample",
 	"pk": 5,
 	"fields": {
-	    "sample_sheet": 2,
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsample"
+	    ],
 	    "sample_id": "BC19A004A",
-	    "sample_name": "Sample-01",
+	    "sample_name": "Sample-01"
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 5,
+	"fields": {
+	    "sample_ptr": 5,
+	    "sample_sheet": 2,
 	    "index_1_i7_seq": "GCATAACG",
 	    "index_2_i5_seq": ""
 	}
     },
     {
-	"model": "sequdas.miseqsample",
+	"model": "api.sample",
 	"pk": 6,
 	"fields": {
-	    "sample_sheet": 2,
+	    "polymorphic_ctype":[
+		"api",
+		"miseqsample"
+	    ],
 	    "sample_id": "BC19A005A",
-	    "sample_name": "Sample-02",
+	    "sample_name": "Sample-02"
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 6,
+	"fields": {
+	    "sample_ptr": 6,
+	    "sample_sheet": 2,
 	    "index_1_i7_seq": "ACAGAGGT",
 	    "index_2_i5_seq": ""
 	}

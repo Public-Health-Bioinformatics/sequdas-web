@@ -1,7 +1,7 @@
 from django.contrib import admin
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin
 
-from sequdas import models
+from . import models
 
 admin.site.register(models.Sequencer)
 admin.site.register(models.MiseqSampleSheet)
