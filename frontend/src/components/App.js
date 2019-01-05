@@ -1,12 +1,21 @@
-import React from "react";
+import React, { Component } from 'react';
 import ReactDOM from "react-dom";
-import DataProvider from "./DataProvider";
+import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+import Header from "./Header"
 import Table from "./Table";
 
-const App = () => (
-  <DataProvider endpoint="api/sequence-runs/" 
-                render={data => <Table data={data} />} />
-);
+class App extends Component {
+    render() {
+	return (
+                <div>
+                  <Header />
+                  <Table />
+                </div>	
+	);
+    }
+}
 
 const wrapper = document.getElementById("app");
 

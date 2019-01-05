@@ -1,0 +1,23 @@
+h1 {
+    grid-area: a;
+    color: #2669d6;
+    font-size: 1.5em;
+    line-height: 20px;
+    horizontal-align: left;
+}
+
+header {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: 
+    "a a b b c c d d";
+    align-items: start;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+header.title {
+    order: 0;
+}
