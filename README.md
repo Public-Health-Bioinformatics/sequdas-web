@@ -8,6 +8,12 @@ Set an environment variable to use as a Django `SECRET_KEY`. You can use [this s
 export DJANGO_SECRET_KEY=yoursecretkey
 ```
 
+### Build the Development Environment
+
+```
+docker-compose up -d --build
+```
+
 ### Create the base Django datbase tables
 
 ```
@@ -26,5 +32,6 @@ Follow the prompts to enter username and password for the Django admin user.
 ```
 docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
+docker-compose exec web python manage.py loaddata users
 docker-compose exec web python manage.py loaddata seed_data
 ```

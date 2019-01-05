@@ -5,262 +5,166 @@
 	"fields": {
 	    "manufacturer": "Illumina",
 	    "model_name": "MiSeq",
-	    "sequencer_id": "M03782"
-	}
-    },
-    {
-	"model": "api.sequencer",
-	"pk": 2,
-	"fields": {
-	    "manufacturer": "Illumina",
-	    "model_name": "MiSeq",
-	    "sequencer_id": "M04448"
-	}
-    },
-    {
-	"model": "api.sequencer",
-	"pk": 3,
-	"fields": {
-	    "manufacturer": "Oxford Nanopore",
-	    "model_name": "Minion",
-	    "sequencer_id": "ABC123"
-	}
-    },
-    {
-	"model": "api.sequencer",
-	"pk": 4,
-	"fields": {
-	    "manufacturer": "Oxford Nanopore",
-	    "model_name": "Minion",
-	    "sequencer_id": "DEF345"
+	    "sequencer_id": "M0001"
 	}
     },
     {
 	"model": "api.miseqsamplesheet",
 	"pk": 1,
 	"fields": {
-	    "path": "/data/miseq/190112_M03782_0021_000000000-C472A/SampleSheet.csv",
+	    "path": "/data/miseq/001/SampleSheet.csv",
 	    "iem_file_version": "4",
-	    "investigator_name": "Dr. Sanger",
-	    "project_name": "A Zillion Genomes Project",
-	    "date": "2019-01-12",
+	    "investigator_name": "Dr. Doctor",
+	    "project_name": "A Billion Genomes Project",
+	    "experiment_name": "Pilot Study",
+	    "date": "2019-01-04",
 	    "workflow": "GenerateFASTQ",
 	    "assay": "TruSeq LT",
 	    "description": "",
 	    "chemistry": "Default",
 	    "application": "FASTQ Only",
-	    "read1_length": "251",
-	    "read2_length": "251",
-	    "reverse_complement": 0,
+	    "reverse_complement": false,
 	    "adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
-	    "adapter_read2": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
+	    "adapter_read2": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT",
+	    "read1_length": 251,
+	    "read2_length": 251
 	}
     },
     {
-	"model": "api.sequencerun",
+	"model": "api.miseqsample",
 	"pk": 1,
 	"fields": {
-	    "polymorphic_ctype": [
-		"api",
-		"miseqsequencerun"
-	    ],
-	    "run_id": "M03782-0021",
-	    "sequencer": 1
+	    "sample_sheet": 1,
+	    "sample_id": "Sample-01",
+	    "sample_name": null,
+	    "sample_plate": null,
+	    "sample_well": null,
+	    "index_1_i7_index_id": "TSHT-1",
+	    "index_1_i7_index_seq": "GACACAGT",
+	    "index_2_i5_index_id": null,
+	    "index_2_i5_index_seq": null,
+	    "sample_project": null,
+	    "description": null,
+	    "genome_folder": null,
+	    "manifest": null,
+	    "contaminants": null,
+	    "mirna": null,
+	    "rna": null
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 2,
+	"fields": {
+	    "sample_sheet": 1,
+	    "sample_id": "Sample-02",
+	    "sample_name": null,
+	    "sample_plate": null,
+	    "sample_well": null,
+	    "index_1_i7_index_id": "TSHT-2",
+	    "index_1_i7_index_seq": "GCATAACG",
+	    "index_2_i5_index_id": null,
+	    "index_2_i5_index_seq": null,
+	    "sample_project": null,
+	    "description": null,
+	    "genome_folder": null,
+	    "manifest": null,
+	    "contaminants": null,
+	    "mirna": null,
+	    "rna": null
+	}
+    },
+    {
+	"model": "api.miseqsample",
+	"pk": 3,
+	"fields": {
+	    "sample_sheet": 1,
+	    "sample_id": "Sample-03",
+	    "sample_name": null,
+	    "sample_plate": null,
+	    "sample_well": null,
+	    "index_1_i7_index_id": "TSHT-3",
+	    "index_1_i7_index_seq": "ACAGAGGT",
+	    "index_2_i5_index_id": null,
+	    "index_2_i5_index_seq": null,
+	    "sample_project": null,
+	    "description": null,
+	    "genome_folder": null,
+	    "manifest": null,
+	    "contaminants": null,
+	    "mirna": null,
+	    "rna": null
 	}
     },
     {
 	"model": "api.miseqsequencerun",
 	"pk": 1,
 	"fields": {
+	    "run_id": "001",
 	    "sequencer": 1,
+	    "folder": "/data/miseq/001",
 	    "sample_sheet": 1,
-	    "run_id": "M03782-0021",
-	    "folder": "/data/miseq/190112_M03782_0021_000000000-C472A",
-	    "cluster_density": 842.1,
-	    "clusters_passed_filter_percent": 88.2,
-	    "reads_total": 19579398,
-	    "reads_passed_filter": 16975660,
-	    "bases_greater_than_q30_percent": 97.3 
+	    "cluster_density": "854.50",
+	    "clusters_passed_filter_percent": "95.60",
+	    "reads_total": 5245874,
+	    "reads_passed_filter": 4857254,
+	    "bases_greater_than_q30_percent": "95.30"
 	}
     },
     {
-	"model": "api.sample",
-	"pk": 1,
-	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsample"
-	    ],
-	    "sample_id": "BC19A000A",
-	    "sample_name": "Sample-00"
-	}
-    },
-    {
-	"model": "api.miseqsample",
-	"pk": 1,
-	"fields": {
-	    "sample_ptr": 1,
-	    "sample_sheet": 1,
-	    "index_1_i7_seq": "GACACAGT",
-	    "index_2_i5_seq": ""
-	}
-    },
-    {
-	"model": "api.sample",
-	"pk": 2,
-	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsample"
-	    ],
-	    "sample_id": "BC19A001A",
-	    "sample_name": "Sample-01"
-	}
-    },
-    {
-	"model": "api.miseqsample",
-	"pk": 2,
-	"fields": {
-	    "sample_ptr": 2,
-	    "sample_sheet": 1,
-	    "index_1_i7_seq": "GCATAACG",
-	    "index_2_i5_seq": ""
-	}
-    },
-    {
-	"model": "api.sample",
-	"pk": 3,
-	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsample"
-	    ],
-	    "sample_id": "BC19A002A",
-	    "sample_name": "Sample-02"
-	}
-    },
-    {
-	"model": "api.miseqsample",
-	"pk": 3,
-	"fields": {
-	    "sample_ptr": 3,
-	    "sample_sheet": 1,
-	    "index_1_i7_seq": "ACAGAGGT",
-	    "index_2_i5_seq": ""
-	}
-    },
-    {
-	"model": "api.miseqsamplesheet",
-	"pk": 2,
-	"fields": {
-	    "path": "/data/miseq/190118_M04448_0022_000000000-AG84B/SampleSheet.csv",
-	    "iem_file_version": "4",
-	    "investigator_name": "Dr. Suzuki",
-	    "project_name": "A Zillion-and-One Genomes Project",
-	    "date": "2019-01-18",
-	    "workflow": "GenerateFASTQ",
-	    "assay": "TruSeq LT",
-	    "description": "",
-	    "chemistry": "Default",
-	    "application": "FASTQ Only",
-	    "read1_length": "251",
-	    "read2_length": "251",
-	    "reverse_complement": 0,
-	    "adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
-	    "adapter_read2": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
-	}
-    },
-    {
-	"model": "api.sequencerun",
-	"pk": 2,
-	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsequencerun"
-	    ],
-	    "run_id": "M04448-0022",
-	    "sequencer": 2
-	}
-    },
-    {
-	"model": "api.miseqsequencerun",
-	"pk": 2,
-	"fields": {
-	    "sequencer": 2,
-	    "sample_sheet": 2,
-	    "run_id": "M04448-0022",
-	    "folder": "/data/miseq/190118_M04448_0022_000000000-AG84B",
-	    "cluster_density": 721.4,
-	    "clusters_passed_filter_percent": 95.2,
-	    "reads_total": 18893512,
-	    "reads_passed_filter": 16541371,
-	    "bases_greater_than_q30_percent": 88.2
-	}
-    },
-    {
-	"model": "api.sample",
-	"pk": 4,
-	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsample"
-	    ],
-	    "sample_id": "BC19A003A",
-	    "sample_name": "Sample-00"
-	}
-    },
-    {
-	"model": "api.miseqsample",
-	"pk": 4,
-	"fields": {
-	    "sample_ptr": 4,
-	    "sample_sheet": 2,
-	    "index_1_i7_seq": "GACACAGT",
-	    "index_2_i5_seq": ""
-	}
-    },
-    {
-	"model": "api.sample",
+	"model": "api.miseqreadsummary",
 	"pk": 5,
 	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsample"
-	    ],
-	    "sample_id": "BC19A004A",
-	    "sample_name": "Sample-01"
+	    "sequence_run": 1,
+	    "read_type": "READ_1",
+	    "yield_gigabases": "6.82",
+	    "projected_yield_gigabases": "6.82",
+	    "aligned_percent": null,
+	    "error_rate": "1.79",
+	    "intensity_c1": "206.00",
+	    "bases_greater_than_q30_percent": "80.62"
 	}
     },
     {
-	"model": "api.miseqsample",
-	"pk": 5,
-	"fields": {
-	    "sample_ptr": 5,
-	    "sample_sheet": 2,
-	    "index_1_i7_seq": "GCATAACG",
-	    "index_2_i5_seq": ""
-	}
-    },
-    {
-	"model": "api.sample",
+	"model": "api.miseqreadsummary",
 	"pk": 6,
 	"fields": {
-	    "polymorphic_ctype":[
-		"api",
-		"miseqsample"
-	    ],
-	    "sample_id": "BC19A005A",
-	    "sample_name": "Sample-02"
+	    "sequence_run": 1,
+	    "read_type": "INDEX_1",
+	    "yield_gigabases": "0.16",
+	    "projected_yield_gigabases": "0.16",
+	    "aligned_percent": null,
+	    "error_rate": null,
+	    "intensity_c1": "483.00",
+	    "bases_greater_than_q30_percent": "95.12"
 	}
     },
     {
-	"model": "api.miseqsample",
-	"pk": 6,
+	"model": "api.miseqreadsummary",
+	"pk": 7,
 	"fields": {
-	    "sample_ptr": 6,
-	    "sample_sheet": 2,
-	    "index_1_i7_seq": "ACAGAGGT",
-	    "index_2_i5_seq": ""
+	    "sequence_run": 1,
+	    "read_type": "READ_2",
+	    "yield_gigabases": "6.82",
+	    "projected_yield_gigabases": "6.82",
+	    "aligned_percent": null,
+	    "error_rate": "2.55",
+	    "intensity_c1": "156.00",
+	    "bases_greater_than_q30_percent": "60.74"
+	}
+    },
+    {
+	"model": "api.miseqreadsummary",
+	"pk": 8,
+	"fields": {
+	    "sequence_run": 1,
+	    "read_type": "NON_INDEXED",
+	    "yield_gigabases": "13.63",
+	    "projected_yield_gigabases": "13.63",
+	    "aligned_percent": null,
+	    "error_rate": "2.17",
+	    "intensity_c1": "282.00",
+	    "bases_greater_than_q30_percent": "70.96"
 	}
     }
 ]
