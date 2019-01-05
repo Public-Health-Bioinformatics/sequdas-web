@@ -16,7 +16,7 @@ class Table extends Component {
 	}
     }
     componentDidMount() {
-	fetch('http://localhost:8000/api/sequenceruns/')
+	fetch('/api/sequenceruns/')
 	    .then(result => result.json())
 	    .then(rowData => this.setState({rowData}))
 	}

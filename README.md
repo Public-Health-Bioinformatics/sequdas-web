@@ -8,6 +8,12 @@ Set an environment variable to use as a Django `SECRET_KEY`. You can use [this s
 export DJANGO_SECRET_KEY=yoursecretkey
 ```
 
+There are multiple settings modules available. Specify which one to activate by defining an environment variable:
+
+```
+export DJANGO_SETTINGS_MODULE=config.settings.development
+```
+
 ### Build the Development Environment
 
 ```
