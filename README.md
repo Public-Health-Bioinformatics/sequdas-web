@@ -35,3 +35,16 @@ docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py loaddata users
 docker-compose exec web python manage.py loaddata seed_data
 ```
+
+### Build the frontend
+
+First, install the dependencies:
+
+```
+cd frontend
+yarn install
+```
+
+```
+yarn build
+```
