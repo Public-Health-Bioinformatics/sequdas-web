@@ -19,3 +19,6 @@ class MiseqSampleSheetViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.MiseqSampleSheet.objects.all()
     serializer_class = serializers.MiseqSampleSheetSerializer
 
+class MiseqSampleViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = models.MiseqSample.objects.all()
+    serializer_class = serializers.MiseqSampleSerializer

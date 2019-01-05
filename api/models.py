@@ -28,7 +28,7 @@ class MiseqSampleSheet(models.Model):
         return (str(self.date) + ": " + self.project_name + "/" + self.experiment_name)
 
 class MiseqSample(models.Model):
-    sample_sheet = models.ForeignKey(MiseqSampleSheet, on_delete=models.CASCADE)
+    sample_sheet = models.ForeignKey(MiseqSampleSheet, related_name='samples', on_delete=models.CASCADE)
     sample_id = models.CharField(max_length=256, blank=False)
     sample_name = models.CharField(max_length=256, blank=True, null=True)
     sample_plate = models.CharField(max_length=256, blank=True, null=True)

@@ -8,6 +8,7 @@ router.register('users', views.UserViewSet)
 router.register('sequencers', views.SequencerViewSet)
 router.register('sequenceruns', views.MiseqSequenceRunViewSet)
 router.register('miseqsamplesheets', views.MiseqSampleSheetViewSet)
+router.register('miseqsamples', views.MiseqSampleViewSet)
 
 urlpatterns = [
     path('', include(router.urls))
