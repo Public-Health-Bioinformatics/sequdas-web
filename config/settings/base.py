@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
+REACT_APP_DIR = os.path.join(BASE_DIR, '..', 'frontend')
 
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static'),
@@ -136,7 +136,6 @@ OAUTH2_PROVIDER = {
     'SCOPES': {
         'read': 'Read scope',
         'write': 'Write scope',
-        'groups': 'Access to your groups',
     },
 }
 

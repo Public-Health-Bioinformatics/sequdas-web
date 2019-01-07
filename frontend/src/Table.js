@@ -13,30 +13,30 @@ class Table extends Component {
                 {headerName: "Cluster Density (k/mm^2)", field: "cluster_density"},
                 {headerName: "Clusters PF (%)", field: "clusters_passed_filter_percent"}
 	    ]
-	}
+	};
     }
     componentDidMount() {
 	fetch('/api/sequenceruns/')
 	    .then(result => result.json())
-	    .then(rowData => this.setState({rowData}))
-	}
+	    .then(rowData => this.setState({rowData}));
+    }
     render() {
 	return (
-		<div 
-                  className="ag-theme-balham"
-                  style={{ 
-                      height: "500px",
-		      width: "600px",
-		      align: "left"
-		  }} 
-                >
-                <AgGridReact
-                    enableSorting={true}
-                    rowSelection="single"
-	            columnDefs={this.state.columnDefs}
-                    rowData={this.state.rowData}>
-                  </AgGridReact>
-                </div>	      
+	    <div
+              className="ag-theme-balham"
+              style={{
+                  height: "500px",
+                  width: "600px",
+                  align: "left"
+              }}
+              >
+              <AgGridReact
+                enableSorting={true}
+                rowSelection="single"
+	        columnDefs={this.state.columnDefs}
+                rowData={this.state.rowData}>
+              </AgGridReact>
+            </div>
         );
     }
 }
