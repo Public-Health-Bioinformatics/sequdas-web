@@ -9,7 +9,9 @@ class Header extends Component {
 	return (
 	    <header>
 	      <div className="header title">
-		<Link to="/"><h1>SeqUDAS</h1></Link>
+		<Link to="/" style={{ textDecoration: 'none' }}>
+		  <h1>SeqUDAS</h1>
+		</Link>
 	      </div>
 	    </header>
 	);
