@@ -1,5 +1,5 @@
 export default class AuthService {
-    // Initializing important variables
+
     constructor(domain) {
 	
     }
@@ -45,7 +45,7 @@ export default class AuthService {
         }
 
         // Setting Authorization header
-        // Authorization: JWT xxxxxxx.xxxxxxxx.xxxxxx
+        // Authorization: Bearer xxxxxxx.xxxxxxxx.xxxxxx
         if (this.loggedIn()) {
 	    console.log(this.getToken())
             headers['Authorization'] = 'Bearer ' + this.getToken()
