@@ -1,4 +1,19 @@
 from .base import *
 
-MIDDLEWARE.append('config.middleware.dev_cors_middleware')
-REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'].append('rest_framework.authentication.SessionAuthentication')
+MIDDLEWARE += [
+    'config.middleware.dev_cors_middleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+
+INSTALLED_APPS += [
+    'debug_toolbar',
+]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost',
+]
+
+REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] += [
+    'rest_framework.authentication.SessionAuthentication'
+]
