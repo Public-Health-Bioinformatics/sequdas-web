@@ -9,6 +9,7 @@ class Table extends Component {
 
 	this.state = {
 	    columnDefs: [
+		{headerName: "Sequencer", field: "sequencer"},
                 {headerName: "Run ID", field: "run_id"},
                 {headerName: "Cluster Density (k/mm^2)", field: "cluster_density"},
                 {headerName: "Clusters PF (%)", field: "clusters_passed_filter_percent"}
@@ -16,9 +17,22 @@ class Table extends Component {
 	};
     }
     componentDidMount() {
-	fetch('/api/sequenceruns/')
-	    .then(result => result.json())
-	    .then(rowData => this.setState({rowData}));
+	const fetchSequenceRuns = async () => {
+	    const response = await fetch('/api/sequenceruns/');
+	    const value = await response.json();
+	    return value;
+	} 
+	const fetchSequencerId = async (sequenceruns) => {
+	    const updatedSequenceRuns = await Promise.all(sequenceruns.map(
+		async (sequencerun) => Object.assign(sequencerun, {sequencer: await fetch(new URL(sequencerun.sequencer).pathname)
+								   .then(result => result.json())
+								   .then(result => result.sequencer_id)})
+	    ))
+	    return updatedSequenceRuns;
+	}
+	fetchSequenceRuns()
+	    .then(sequenceruns => fetchSequencerId(sequenceruns))
+	    .then(rowData => this.setState({rowData}))
     }
     render() {
 	return (
@@ -26,7 +40,7 @@ class Table extends Component {
               className="ag-theme-balham"
               style={{
                   height: "500px",
-                  width: "600px",
+                  width: "800px",
                   align: "left"
               }}
               >
