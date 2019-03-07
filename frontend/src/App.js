@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./Header";
 import Login from "./Login";
-import Table from "./Table";
+import SequenceRunSampleBrowser from "./SequenceRunSampleBrowser";
 
 class App extends Component {
     render() {
@@ -11,7 +11,7 @@ class App extends Component {
 	    <Router>
 	      <div className="App">
 		<Header />
-		<Route exact path="/" component={Table} />
+		<Route exact path="/" component={SequenceRunSampleBrowser} />
 		<Route exact path='/login/' component={Login} />
 	      </div>
 	    </Router>
