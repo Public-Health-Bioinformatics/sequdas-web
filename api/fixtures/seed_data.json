@@ -106,7 +106,7 @@
 	}
     },
     {
-	"model": "api.miseqsequencerun",
+	"model": "api.miseqsequencingrun",
 	"pk": 1,
 	"fields": {
 	    "run_id": "001",
@@ -265,7 +265,7 @@
 	}
     },
     {
-	"model": "api.miseqsequencerun",
+	"model": "api.miseqsequencingrun",
 	"pk": 2,
 	"fields": {
 	    "run_id": "002",

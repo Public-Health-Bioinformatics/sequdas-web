@@ -47,7 +47,7 @@ class MiseqSample(models.Model):
     def __str__(self):
         return (self.sample_id)
 
-class MiseqSequenceRun(models.Model):
+class MiseqSequencingRun(models.Model):
     run_id = models.CharField(max_length=64)
     sequencer = models.ForeignKey(Sequencer, on_delete=models.SET_NULL, null=True)
     folder = models.CharField(max_length=256, blank=True)    
@@ -61,7 +61,7 @@ class MiseqSequenceRun(models.Model):
         return self.run_id
 
 class MiseqReadSummary(models.Model):
-    sequence_run = models.ForeignKey(MiseqSequenceRun, on_delete=models.CASCADE, related_name='read_summaries')
+    sequence_run = models.ForeignKey(MiseqSequencingRun, on_delete=models.CASCADE, related_name='read_summaries')
     READ_TYPE_CHOICES = (
         ('READ_1', 'Read 1'),
         ('INDEX_1', 'Index 1'),

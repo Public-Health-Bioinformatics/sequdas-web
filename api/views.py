@@ -17,11 +17,11 @@ class SequencerViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Sequencer.objects.all()
     serializer_class = serializers.SequencerSerializer
 
-class MiseqSequenceRunViewSet(viewsets.ReadOnlyModelViewSet):
+class MiseqSequencingRunViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticatedOrTokenHasScope]
     required_scopes = ['read']
-    queryset = models.MiseqSequenceRun.objects.all()
-    serializer_class = serializers.MiseqSequenceRunSerializer
+    queryset = models.MiseqSequencingRun.objects.all()
+    serializer_class = serializers.MiseqSequencingRunSerializer
 
 class MiseqSampleSheetViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticatedOrTokenHasScope]
