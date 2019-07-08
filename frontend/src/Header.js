@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import './Header.css';
 
@@ -8,7 +9,9 @@ class Header extends Component {
 	return (
 	    <header>
 	      <div className="header title">
-		<h1>SeqUDAS</h1>
+		<Link to="/" style={{ textDecoration: 'none' }}>
+		  <h1>SeqUDAS</h1>
+		</Link>
 	      </div>
 	    </header>
 	);

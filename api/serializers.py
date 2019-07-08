@@ -61,17 +61,17 @@ class MiseqSampleSheetSerializer(serializers.HyperlinkedModelSerializer):
             'url': {'view_name': 'miseqsamplesheet-detail', 'lookup_field': 'pk'},
         }
 
-class MiseqSequenceRunSerializer(serializers.HyperlinkedModelSerializer):
+class MiseqSequencingRunSerializer(serializers.HyperlinkedModelSerializer):
     samplesheet = serializers.HyperlinkedRelatedField(
         many = False,
         read_only = True,
         view_name = 'miseqsamplesheet-detail'
     )
     class Meta:
-        model = models.MiseqSequenceRun
+        model = models.MiseqSequencingRun
         fields = '__all__'
         extra_kwargs = {
-            'url': {'view_name': 'miseqsequencerun-detail', 'lookup_field': 'pk'},
+            'url': {'view_name': 'miseqsequencingrun-detail', 'lookup_field': 'pk'},
         }
 
 class ReadSummarySerializer(serializers.HyperlinkedModelSerializer):
